@@ -59,19 +59,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func resetVarsOnStart() {
         score = 0
+        spikeSpeed = 2.0
         isAlive = true
-    }
-    
-    func touchDown(atPoint pos : CGPoint) {
-        
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -85,6 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 player.position.x = -500
             }
         }
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -222,6 +212,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func updateScore() {
         lblScore.text = "Score: \(score)"
+        
+        if((score % 10 == 0) && (spikeSpeed > 0)) {
+            spikeSpeed = spikeSpeed - 0.2
+        }
+        
+        if(spikeSpeed <= 0) {
+            spikeSpeed = 0.1
+        }
+        
     }
     
     func waitThenMoveToTitleScene() {

@@ -37,7 +37,7 @@ class TitleScene: SKScene {
         
         gameTitle = UILabel(frame: CGRect(x: 0, y: 0, width: view!.frame.width, height: 300))
         gameTitle.textColor = offWhiteColor
-        gameTitle.font = UIFont(name: "Futura", size: 50)
+        gameTitle.font = UIFont(name: "Futura", size: 40)
         gameTitle.textAlignment = NSTextAlignment.center
         gameTitle.text = "AVOID SPIKES!"
         
